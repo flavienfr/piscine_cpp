@@ -20,7 +20,7 @@ int Account::_totalNbDeposits;
 int Account::_totalNbWithdrawals;
 
 void    Account::_displayTimestamp(void)
-{return;
+{
 	time_t	curr_time;
 	tm		*curr_tm;
 	char	buff[20];
