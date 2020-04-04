@@ -6,15 +6,27 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/02 18:52:05 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/03 15:19:42 by froussel         ###   ########.fr       */
+/*   Updated: 2020/04/03 19:54:55 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(int the_value) : value(the_value)
+Fixed::Fixed() : value(DEFAULT_VALUE)
 {
 	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int the_value)
+{
+	std::cout << "Int constructor called" << std::endl;
+	value = the_value << bits;
+}
+
+Fixed::Fixed(const float the_value)
+{
+	std::cout << "Float constructor called" << std::endl;
+	value = roundf(the_value * (1 << bits));
 }
 
 Fixed::Fixed(const Fixed &the_fixed)
@@ -26,7 +38,7 @@ Fixed::Fixed(const Fixed &the_fixed)
 Fixed &Fixed::operator=(const Fixed &the_Fixed)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	value = the_Fixed.getRawBits();
+	value = the_Fixed.value;
 	return (*this);
 }
 
@@ -45,4 +57,20 @@ int		Fixed::getRawBits(void) const
 void	Fixed::setRawBits(int const raw)
 {
 	value = raw;
+}
+
+float	Fixed::toFloat(void) const
+{
+	return ((float)value / (1 << bits)); 
+}
+
+int		Fixed::toInt(void) const
+{
+	return (value >> bits); 
+}
+
+std::ostream &operator<<(std::ostream &output, const Fixed &fixed)
+{
+	output << fixed.toFloat();
+	return (output);
 }
