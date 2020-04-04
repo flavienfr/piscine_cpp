@@ -36,6 +36,12 @@ Fixed::~Fixed()
 {
 }
 
+std::ostream &operator<<(std::ostream &output, const Fixed &fixed)
+{
+	output << fixed.toFloat();
+	return (output);
+}
+
 int		Fixed::getRawBits(void) const
 {
 	return (value);
@@ -51,12 +57,6 @@ float	Fixed::toFloat(void) const
 int		Fixed::toInt(void) const
 {
 	return (value * (1 >> bits)); 
-}
-
-std::ostream &operator<<(std::ostream &output, const Fixed &fixed)
-{
-	output << fixed.toFloat();
-	return (output);
 }
 
 //	+ - - /
