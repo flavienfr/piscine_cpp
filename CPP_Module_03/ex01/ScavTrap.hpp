@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/04 15:24:22 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/05 16:02:24 by froussel         ###   ########.fr       */
+/*   Created: 2020/04/05 16:12:08 by froussel          #+#    #+#             */
+/*   Updated: 2020/04/05 16:54:35 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-# include <string>
 # include <iostream>
+# include <string>
 # include <sys/time.h>
 
-# define ERNERGYCOST 25
-# define NB_ATTACK 5
+# define NB_CHALLENGE 3
 
-class FragTrap
+class ScavTrap
 {
 private:
 	unsigned int	HitPoints;
@@ -33,26 +32,21 @@ private:
 	unsigned int	RangedAttackDamage;
 	unsigned int	ArmorDamageReduction;
 
-	void	initAttack(void);
-	struct s_attack
-	{
-		std::string	name;
-		int			damage;
-	};
-	s_attack	t_attack[NB_ATTACK];
+	void		initChallenge(void);
+	std::string	t_challenge[NB_CHALLENGE];
 
 public:
-	FragTrap();
-	FragTrap(std::string the_Name);
-	FragTrap(const FragTrap &);
-	FragTrap &operator=(const FragTrap &);
-	~FragTrap();
+	ScavTrap();
+	ScavTrap(std::string the_Name);
+	ScavTrap(const ScavTrap &);
+	ScavTrap &operator=(const ScavTrap &);
+	~ScavTrap();
 
 	void	RangedAttack(std::string const &target);
 	void	meleeAttack(std::string const &target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-	void	vaulthunter_dot_exe(const std::string &target);
+	void	challengeNewcomer(void);
 };
 
 #endif
