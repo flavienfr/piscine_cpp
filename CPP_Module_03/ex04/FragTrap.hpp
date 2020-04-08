@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/06 16:29:30 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/07 18:35:38 by froussel         ###   ########.fr       */
+/*   Created: 2020/04/04 15:24:22 by froussel          #+#    #+#             */
+/*   Updated: 2020/04/08 18:05:29 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NINJATRAP_HPP
-# define NINJATRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-# include <string>
-# include <iostream>
 # include "ClapTrap.hpp"
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+# include <sys/time.h>
 
-class NinjaTrap : public ClapTrap
+# define ERNERGYCOST 25
+# define NB_ATTACK 5
+
+class FragTrap : virtual public ClapTrap
 {
 private:
-	
-public:
-	NinjaTrap();
-	NinjaTrap(std::string the_name);
-	NinjaTrap(const NinjaTrap &);
-	NinjaTrap &operator=(const NinjaTrap &);
-	~NinjaTrap();
+	void	initAttack(void);
+	struct s_attack
+	{
+		std::string	name;
+		int			damage;
+	};
+	s_attack	t_attack[NB_ATTACK];
 
-	void	ninjaShoebox(NinjaTrap &target);
-	void	ninjaShoebox(FragTrap &target);
-	void	ninjaShoebox(ScavTrap &target);
-	void	ninjaShoebox(ClapTrap &target);
+public:
+	FragTrap();
+	FragTrap(std::string the_Name);
+	FragTrap(const FragTrap &);
+	FragTrap &operator=(const FragTrap &);
+	~FragTrap();
+
+	void	vaulthunter_dot_exe(const std::string &target);
 };
 
 #endif

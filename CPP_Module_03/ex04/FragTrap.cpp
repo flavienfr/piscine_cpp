@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/04 15:24:24 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/07 18:30:21 by froussel         ###   ########.fr       */
+/*   Updated: 2020/04/08 18:25:01 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,19 @@ FragTrap::FragTrap() : ClapTrap(100, 100, 100, 100, 1, "Default",30, 20, 5)
 	initAttack();
 }
 
-FragTrap::FragTrap(std::string the_Name) : ClapTrap(100, 100, 100, 100, 1, the_Name, 30, 20, 5)
+FragTrap::FragTrap(std::string the_Name) : ClapTrap(the_Name)
 {
-	std::cout << "Constructor of: " << Name << std::endl;
+	HitPoints = 100;
+	MaxHitPoints = 100;
+	RangedAttackDamage = 20;
+	ArmorDamageReduction = 5;
+	std::cout << "Constructor of FragTrap: " << Name << std::endl;
 	initAttack();
 }
 
 FragTrap::FragTrap(const FragTrap &the_FragTrap) : ClapTrap(the_FragTrap)
 {
+	*this = the_FragTrap;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &the_FragTrap)
@@ -36,7 +41,7 @@ FragTrap &FragTrap::operator=(const FragTrap &the_FragTrap)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "Destructor of: " << Name << std::endl;
+	std::cout << "Destructor of FragTrap: " << Name << std::endl;
 }
 
 void	FragTrap::initAttack()

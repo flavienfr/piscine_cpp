@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/05 17:29:43 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/08 17:34:13 by froussel         ###   ########.fr       */
+/*   Updated: 2020/04/08 17:45:23 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ ClapTrap::ClapTrap() : HitPoints(0), MaxHitPoints(0), EnergyPoints(0),
 			RangedAttackDamage(0), ArmorDamageReduction(0)
 {
 	std::cout << "Constructeur par défault ClapTrap de :" << Name << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string the_name) : HitPoints(0), MaxHitPoints(0), EnergyPoints(0),
+			MaxEnergyPoints(0), level(0), Name(the_name), MeleeAttackDamage(0),
+			RangedAttackDamage(0), ArmorDamageReduction(0)
+{
+	std::cout << "Constructeur ClapTrap de :" << Name << std::endl;	
 }
 
 ClapTrap::ClapTrap(unsigned int HitPoints, unsigned int MaxHitPoints,
