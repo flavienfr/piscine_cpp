@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 16:26:01 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/09 17:42:25 by froussel         ###   ########.fr       */
+/*   Updated: 2020/04/09 19:07:25 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include "Enemy.hpp"
 #include "SuperMutant.hpp"
 #include "RadScorpion.hpp"
+#include "Character.hpp"
+
+# include <iostream>
 
 
 int	main()
@@ -33,7 +36,7 @@ int	main()
 	fist.attack();
 	rifle.attack();
 	test->attack();
-*/
+
 //enemy
 	SuperMutant mutant;
 
@@ -46,11 +49,55 @@ int	main()
 	std::cout << scorp.getHP() << std::endl;
 	scorp.takeDamage(10);
 	std::cout << scorp.getHP() << std::endl;
-
-	//canonical test
+*/
+//canonical test
 	//PlasmaRifle other(rifle);
 	//std::cout << other.getName() << std::endl;
 	//other.attack();
+
+//test sujet
+	Character* moi = new Character("moi");
 	
+	std::cout << *moi;
+
+	Enemy* b = new RadScorpion();
+
+	AWeapon* pr = new PlasmaRifle();
+	AWeapon* pf = new PowerFist();
+
+	moi->equip(pr);
+	std::cout << *moi;
+	moi->equip(pf);
+
+	moi->attack(b);
+	std::cout << *moi;
+	moi->equip(pr);
+	std::cout << *moi;
+	moi->attack(b);
+	std::cout << *moi;
+	moi->attack(b);
+	std::cout << *moi;
+
+
+/*	Enemy* c = new SuperMutant();
+
+	moi->attack(c);
+	std::cout << *moi;
+	moi->attack(c);
+	std::cout << *moi;
+	moi->attack(c);
+	std::cout << *moi;
+	moi->attack(c);
+	std::cout << *moi;
+	moi->attack(c);
+	std::cout << *moi;
+	moi->recoverAP();
+	std::cout << *moi;*/
+
+
+	delete pr;
+	delete pf;
+	delete moi;
+
 	return (0);
 }
