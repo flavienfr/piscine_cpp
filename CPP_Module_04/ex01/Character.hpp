@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 17:45:08 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/09 18:43:38 by froussel         ###   ########.fr       */
+/*   Updated: 2020/04/09 19:33:21 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ public:
 	Character(std::string const & name);
 	Character(const Character &);
 	Character &operator=(const Character &);
-	~Character();//virtual ?
+	virtual ~Character();
 
-	std::string		getName() const;//virtual ?
-	int				getAP() const;//virtual ?
-	AWeapon			*getWeapon() const;//virtual ?
+	virtual std::string		getName() const;
+	virtual int				getAP() const;
+	virtual AWeapon			*getWeapon() const;
 
 	void			recoverAP();
 	void			equip(AWeapon *);
-	void			attack(Enemy *);
+	virtual void	attack(Enemy *);
 };
 
 std::ostream	&operator<<(std::ostream &os, const Character &);
