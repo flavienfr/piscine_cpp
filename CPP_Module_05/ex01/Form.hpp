@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 00:36:03 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/14 02:28:30 by froussel         ###   ########.fr       */
+/*   Updated: 2020/04/22 22:30:22 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,13 @@ public:
 	class FormAlreadySigned : public std::exception{
 		virtual const char *what() const throw();
 	};
+	class FormNotSigned : public std::exception{
+		virtual const char *what() const throw();
+	};
 
-
-	void	beSigned(Bureaucrat &);
+	void			beSigned(Bureaucrat &);
+	virtual void	action() const = 0;
+	void	execute(Bureaucrat const &executor) const;
 };
 
 std::ostream	&operator<<(std::ostream &os, Form &form);

@@ -52,6 +52,8 @@ public:
 	void	grade_up();
 	void	grade_down();
 	void	signForm(Form &form);
+
+	void	executeForm (Form const &form) const;
 };
 
 std::ostream	&operator<<(std::ostream &os, Bureaucrat &br);

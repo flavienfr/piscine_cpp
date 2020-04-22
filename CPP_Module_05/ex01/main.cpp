@@ -12,23 +12,37 @@
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
 
 int main()
 {
-	Form form_1("form_1", 50, 1000);
-	std::cout << form_1;
+	//Test action fucntion manualy
+	/*
+	ShrubberyCreationForm arbre("soda");
+	arbre.action();
 
-	Bureaucrat jean("jean", 51);
+	RobotomyRequestForm robot("pignosse");
+	robot.action();
+
+	PresidentialPardonForm president("Hollande");
+	president.action();
+	*/
+
+	//Test execute form
+	//RobotomyRequestForm rob("rob");
+	PresidentialPardonForm rob("rob");
+	//ShrubberyCreationForm rob("rob");
+	
+	std::cout << rob;
+
+	Bureaucrat jean("jean", 26);//change level
 	std::cout << jean;
 
-	jean.signForm(form_1);
-
-	jean.grade_up();
-	std::cout << jean;
-	jean.signForm(form_1);
-
-	jean.signForm(form_1);
+	jean.signForm(rob);
+	jean.executeForm(rob);
 
 	return (0);
 }

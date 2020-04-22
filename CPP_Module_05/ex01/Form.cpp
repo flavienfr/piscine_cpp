@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 00:36:05 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/14 02:34:39 by froussel         ###   ########.fr       */
+/*   Updated: 2020/04/22 22:30:22 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ const char	*Form::GradeTooHighException::what() const throw()
 const char	*Form::FormAlreadySigned::what() const throw()
 { return ("Form Already Signed"); }
 
-void		Form::beSigned(Bureaucrat &bc)
+const char	*Form::FormNotSigned::what() const throw()
+{ return ("Form is not Signed"); }
+
+void	Form::beSigned(Bureaucrat &bc)
 {
 	if (bc.getGrade() > grade_to_sign)
 		throw Form::GradeTooLowException();
@@ -97,4 +100,13 @@ void		Form::beSigned(Bureaucrat &bc)
 		throw Form::FormAlreadySigned();
 	else
 		is_signed = true;
+}
+
+void	Form::execute(Bureaucrat const &executor) const
+{
+	if (is_signed == 0)
+		throw Form::FormNotSigned();//change
+	if (executor.getGrade() > grade_to_exec)
+		throw Form::GradeTooLowException();
+	action();	
 }
