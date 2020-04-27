@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/22 22:56:25 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/23 19:04:27 by froussel         ###   ########.fr       */
+/*   Updated: 2020/04/24 16:46:37 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Intern::Intern(const Intern &the_Intern)
 
 Intern &Intern::operator=(const Intern &the_Intern)
 {
+	(void)the_Intern;
 	return (*this);
 }
 
