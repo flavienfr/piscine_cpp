@@ -19,8 +19,9 @@
 
 int main()
 {
+	{
 	//Test action fucntion manualy
-	/*
+
 	ShrubberyCreationForm arbre("soda");
 	arbre.action();
 
@@ -29,20 +30,49 @@ int main()
 
 	PresidentialPardonForm president("Hollande");
 	president.action();
-	*/
+	}
+	{
+		std::cout << "---------" << std::endl;
 
-	//Test execute form
-	//RobotomyRequestForm rob("rob");
-	PresidentialPardonForm rob("rob");
-	//ShrubberyCreationForm rob("rob");
+		//Test execute form
+		RobotomyRequestForm rob("rob");
+		//PresidentialPardonForm rob("rob");
+		//ShrubberyCreationForm rob("rob");
+
+		std::cout << rob;
+
+		Bureaucrat jean("jean", 26);//change level
+		std::cout << jean;
+
+		jean.signForm(rob);
+		jean.executeForm(rob);
+	}
+	{
+		std::cout << "---------" << std::endl;
 	
-	std::cout << rob;
-
-	Bureaucrat jean("jean", 26);//change level
-	std::cout << jean;
-
-	jean.signForm(rob);
-	jean.executeForm(rob);
+		PresidentialPardonForm rob("rob");
+		
+		std::cout << rob;
+	
+		Bureaucrat jean("jean", 26);//change level
+		std::cout << jean;
+	
+		jean.signForm(rob);
+		jean.executeForm(rob);
+	}
+		{
+		std::cout << "---------" << std::endl;
+	
+		ShrubberyCreationForm rob("rob");
+		
+		std::cout << rob;
+	
+		Bureaucrat jean("jean", 26);//change level
+		std::cout << jean;
+	
+		jean.signForm(rob);
+		jean.executeForm(rob);
+	}
 
 	return (0);
 }
