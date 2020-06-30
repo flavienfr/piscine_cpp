@@ -20,23 +20,76 @@
 
 int main()
 {
-	Intern esclave;
-	//Form *rob = esclave.makeForm("robotomy request", "Bender");
-	//Form *rob = esclave.makeForm("presidential pardon", "dodo");
-	//Form *rob = esclave.makeForm("shrubbery creation", "didi");
-	Form *rob = esclave.makeForm("dhrubbesry creatiosn", "dido");
-	if (!rob)
-		return (1);
+	{
+		Intern esclave;
+		Form *rob = esclave.makeForm("shrubbery creation", "didi");
+		if (!rob)
+			return (1);
 
-	std::cout << *rob;
+		std::cout << *rob;
 
-	Bureaucrat jean("jean", 1);//change level
-	std::cout << jean;
+		Bureaucrat jean("jean", 1);//change level
+		std::cout << jean;
 
-	jean.signForm(*rob);
-	jean.executeForm(*rob);
+		jean.signForm(*rob);
+		jean.executeForm(*rob);
 
-	delete rob;
+		delete rob;
+	}
+	std::cout << "--------------------" << std::endl;
+	{
+		Intern esclave;
+		Form *rob = esclave.makeForm("presidential pardon", "dodo");
+		if (!rob)
+			return (1);
+
+		std::cout << *rob;
+
+		Bureaucrat jean("jean", 1);//change level
+		std::cout << jean;
+
+		jean.signForm(*rob);
+		jean.executeForm(*rob);
+
+		delete rob;
+	}
+	std::cout << "--------------------" << std::endl;
+	{
+		Intern esclave;
+		Form *rob = esclave.makeForm("robotomy request", "Bender");
+		if (!rob)
+			return (1);
+
+		std::cout << *rob;
+
+		Bureaucrat jean("jean", 1);//change level
+		std::cout << jean;
+
+		jean.signForm(*rob);
+		jean.executeForm(*rob);
+
+		delete rob;
+	}
+	std::cout << "--------------------" << std::endl;
+	{
+		Intern esclave;
+		//Form *rob = esclave.makeForm("robotomy request", "Bender");
+		//Form *rob = esclave.makeForm("presidential pardon", "dodo");
+		//Form *rob = esclave.makeForm("shrubbery creation", "didi");
+		Form *rob = esclave.makeForm("dhrubbesry creatiosn", "dido");
+		if (!rob)
+			return (1);
+
+		std::cout << *rob;
+
+		Bureaucrat jean("jean", 1);//change level
+		std::cout << jean;
+
+		jean.signForm(*rob);
+		jean.executeForm(*rob);
+
+		delete rob;
+	}
 
 	return (0);
 }
