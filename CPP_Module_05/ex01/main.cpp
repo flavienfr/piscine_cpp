@@ -12,67 +12,59 @@
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 #include <iostream>
 
 int main()
 {
 	{
-	//Test action fucntion manualy
+		Form form("formulaire_1.7.5", 27, 25);
 
-	ShrubberyCreationForm arbre("soda");
-	arbre.action();
-
-	RobotomyRequestForm robot("pignosse");
-	robot.action();
-
-	PresidentialPardonForm president("Hollande");
-	president.action();
-	}
-	{
-		std::cout << "---------" << std::endl;
-
-		//Test execute form
-		RobotomyRequestForm rob("rob");
-		//PresidentialPardonForm rob("rob");
-		//ShrubberyCreationForm rob("rob");
-
-		std::cout << rob;
+		std::cout << form;
 
 		Bureaucrat jean("jean", 26);//change level
 		std::cout << jean;
 
-		jean.signForm(rob);
-		jean.executeForm(rob);
+		jean.signForm(form);
+		jean.executeForm(form);
 	}
-	{
-		std::cout << "---------" << std::endl;
-	
-		PresidentialPardonForm rob("rob");
-		
-		std::cout << rob;
-	
-		Bureaucrat jean("jean", 26);//change level
-		std::cout << jean;
-	
-		jean.signForm(rob);
-		jean.executeForm(rob);
-	}
+	std::cout << "---------" << std::endl;
 		{
-		std::cout << "---------" << std::endl;
-	
-		ShrubberyCreationForm rob("rob");
-		
-		std::cout << rob;
-	
+		Form form("formulaire_1.7.5", 25, 27);
+
+		std::cout << form;
+
 		Bureaucrat jean("jean", 26);//change level
 		std::cout << jean;
-	
-		jean.signForm(rob);
-		jean.executeForm(rob);
+
+		jean.signForm(form);
+		jean.executeForm(form);
 	}
+	std::cout << "---------" << std::endl;
+		{
+		Form form("formulaire_1.7.5", 25, 25);
+
+		std::cout << form;
+
+		Bureaucrat jean("jean", 26);//change level
+		std::cout << jean;
+
+		jean.signForm(form);
+		jean.executeForm(form);
+	}
+	std::cout << "---------" << std::endl;
+		std::cout << "---------" << std::endl;
+		{
+		Form form("formulaire_1.7.5", 26, 26);
+
+		std::cout << form;
+
+		Bureaucrat jean("jean", 26);//change level
+		std::cout << jean;
+
+		jean.signForm(form);
+		jean.executeForm(form);
+	}
+	std::cout << "---------" << std::endl;
 
 	return (0);
 }

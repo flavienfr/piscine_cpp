@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 00:36:03 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/23 19:06:45 by froussel         ###   ########.fr       */
+/*   Updated: 2020/06/30 16:14:53 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ public:
 	};
 
 	void			beSigned(Bureaucrat &);
-	virtual void	action() const = 0;
 	void	execute(Bureaucrat const &executor) const;
 };
 

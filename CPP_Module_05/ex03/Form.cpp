@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 00:36:05 by froussel          #+#    #+#             */
-/*   Updated: 2020/06/30 16:14:53 by froussel         ###   ########.fr       */
+/*   Updated: 2020/04/22 22:30:22 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,5 @@ void	Form::execute(Bureaucrat const &executor) const
 		throw Form::FormNotSigned();//change
 	if (executor.getGrade() > grade_to_exec)
 		throw Form::GradeTooLowException();
+	action();	
 }
