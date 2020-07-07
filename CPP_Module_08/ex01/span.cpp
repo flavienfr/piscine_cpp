@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 00:44:42 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/30 19:17:16 by froussel         ###   ########.fr       */
+/*   Updated: 2020/07/07 18:34:09 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,12 @@ int	span::spanDiff(int &v1, int &v2)
 int span::shortestSpan()
 {
 	int spanValue = -1;
-	std::vector<int>::iterator it;
 
 	try
 	{
 		if (container.size() == 0 || container.size() == 1)
 			throw SpanNotFound();
-		for (int i = 1; i < container.size(); i++)
+		for (size_t i = 1; i < container.size(); i++)
 		{
 			int newSpanValue = spanDiff(container[i - 1], container[i]);
 			if (newSpanValue < spanValue || spanValue == -1)
@@ -87,13 +86,12 @@ int span::shortestSpan()
 int span::longestSpan()
 {
 	int spanValue = -1;
-	std::vector<int>::iterator it;
 
 	try
 	{
 		if (container.size() == 0 || container.size() == 1)
 			throw SpanNotFound();
-		for (int i = 1; i < container.size(); i++)
+		for (size_t i = 1; i < container.size(); i++)
 		{
 			int newSpanValue = spanDiff(container[i - 1], container[i]);
 			if (newSpanValue > spanValue || spanValue == -1)

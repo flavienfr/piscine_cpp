@@ -6,7 +6,7 @@
 /*   By: froussel <froussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 00:44:40 by froussel          #+#    #+#             */
-/*   Updated: 2020/04/30 19:16:40 by froussel         ###   ########.fr       */
+/*   Updated: 2020/07/07 16:59:48 by froussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int	main()
 		std::cout << "longestSpan: " << spCopy.longestSpan() << std::endl;
 	}
 	{
-		int size = 420000;
+		size_t size = 420000;
 		span megaSp = span(size);
 		srand(time(NULL));
 
-		for (unsigned int i = 0; i < size; i++)
+		for (size_t i = 0; i < size; i++)
 			megaSp.addNumber(randomValue());
 			
 		std::cout << "shortest Span: " << megaSp.shortestSpan() << std::endl;
